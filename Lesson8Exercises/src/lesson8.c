@@ -8,13 +8,13 @@ int main() {
 
 	//taskOne();
 
-	//taskTwo();
+	taskTwo();
 
 	//taskThree();
 
 	//taskFour();
 
-	testFunc();
+//	testFunc();
 
 }
 
