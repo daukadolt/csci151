@@ -6,9 +6,9 @@ int main() {
 
 //	taskOne();
 
-//	taskTwo();
+	taskTwo();
 
-	taskThree();
+//	taskThree();
 
 }
 
@@ -32,8 +32,8 @@ int taskTwo(){
 	printf("Please, type in a string so that I could process it\n");
 	do {
 		ch = getchar();
-		if ( (int) ch <= 90 && (int) ch >= 65) {
-			printf("%c", (int) ch + 32);
+		if ( (int) ch <= 122 && (int) ch >= 97) {
+			printf("%c", (int) ch - 32);
 			continue;
 		}
 		printf("%c", ch);
