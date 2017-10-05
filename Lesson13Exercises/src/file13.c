@@ -11,7 +11,7 @@ int main() {
 
 //	taskOne();
 
-//	taskTwo();
+	taskTwo();
 
 //	taskThree();
 
