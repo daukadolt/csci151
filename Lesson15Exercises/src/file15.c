@@ -19,7 +19,9 @@ int main() {
 
 //	taskOne();
 
-	taskTwo();
+//	taskTwo();
+
+	taskThree();
 
 	return 0;
 }
@@ -80,6 +82,45 @@ int taskTwo() {
 	}
 
 	printf("%i\n", pentagon.coords[1].x);
+
+	fclose(input);
+
+	return 0;
+}
+
+
+int taskThree() {
+
+	int i = 10,
+			sum_c = 0, n_c = 0,
+			sum_s = 0, n_s = 0,
+			sum_d = 0, n_d = 0;
+	FILE *accounts;
+
+	accounts = fopen("accounts.txt", "r");
+
+	typedef struct {
+		int cID;
+		char typeC;
+		double balance;
+	} BankCustomer;
+
+
+	BankCustomer DauletBank[10];
+
+	for (i = 0; i<10; i++) {
+		fscanf(accounts, "%i %c %lf", &DauletBank[i].cID, &DauletBank[i].typeC, &DauletBank[i].balance);
+		switch(DauletBank[i].typeC) {
+		case 'c': sum_c+=DauletBank[i].balance; n_c++; break;
+		case 's': sum_s+=DauletBank[i].balance; n_s++; break;
+		case 'd': sum_d+=DauletBank[i].balance; n_d++; break;
+		}
+	}
+
+	printf("Average values:\n");
+	printf("Checking accounts:\t%i\n", sum_c/n_c);
+	printf("Savings accounts:\t%i\n", sum_s/n_s);
+	printf("Deposit accounts:\t%i\n", sum_d/n_d);
 
 	return 0;
 }
