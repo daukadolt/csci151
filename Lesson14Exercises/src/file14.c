@@ -15,6 +15,8 @@ typedef struct {
 
 int main() {
 
+	setvbuf(stdout, NULL, _IONBF, 0);
+
 //	videoExercise();
 
 //	taskOne();
@@ -25,7 +27,7 @@ int main() {
 }
 
 int videoExercise() {
-	setvbuf(stdout, NULL, _IONBF, 0);
+
 
 	char ch;
 	int cID, initialBalance, time;
