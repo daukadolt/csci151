@@ -15,7 +15,11 @@ typedef struct {
 
 int main() {
 
-	videoExercise();
+//	videoExercise();
+
+//	taskOne();
+
+	taskTwo();
 
 	return 0;
 }
@@ -78,4 +82,76 @@ int videoExercise() {
 
 int taskOne() {
 
+	int advMins, hours, minutes;
+
+	typedef struct {
+		int hours;
+		int minutes;
+		char amORpm;
+	} time;
+
+	time now = {.hours = 12, .minutes = 0, .amORpm = 'a'};
+
+
+	printf("Right now it is %.2i:%.2i %c\n", now.hours, now.minutes, now.amORpm);
+
+	printf("How many minutes would you want to forward the time:\n");
+
+	scanf("%i", &advMins);
+
+
+	hours = advMins / 60;
+
+	minutes = advMins % 60;
+
+	if(now.hours + hours >= 24) {
+		if(now.amORpm == 'a') now.amORpm = 'p';
+		else now.amORpm = 'a';
+	}
+
+	now.hours = (now.hours+hours)%12;
+	now.minutes = minutes;
+
+	printf("Right now it is %.2i:%.2i %c", now.hours, now.minutes, now.amORpm);
+
+	return 0;
+}
+
+
+int taskTwo() {
+
+	typedef struct {
+		int ID;
+		char gender;
+		double labGrades, qGrades, fexamGrade, finalGrade;
+
+	} student;
+
+	student nuStudent;
+
+	printf("What is your ID number?\n");
+
+	scanf("%i", &nuStudent.ID);
+
+	printf("What is your gender? Type in M for male and F for Female\n");
+
+	scanf(" %c", &nuStudent.gender);
+
+	printf("What is your total grade for labs?\n");
+
+	scanf("%lf", &nuStudent.labGrades);
+
+	printf("What is your total grade for quizzes?\n");
+
+	scanf("%lf", &nuStudent.qGrades);
+
+	printf("What is your grade for final exam?\n");
+
+	scanf("%lf", &nuStudent.fexamGrade);
+
+	nuStudent.finalGrade = nuStudent.labGrades*0.2 + nuStudent.qGrades*0.5 + nuStudent.fexamGrade*0.3;
+
+	printf("Student %i, your final grade is %lf", nuStudent.ID, nuStudent.finalGrade);
+
+	return 0;
 }
