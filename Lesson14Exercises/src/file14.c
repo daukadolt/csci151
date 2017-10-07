@@ -19,9 +19,9 @@ int main() {
 
 //	videoExercise();
 
-//	taskOne();
+	taskOne();
 
-	taskTwo();
+//	taskTwo();
 
 	return 0;
 }
@@ -106,12 +106,12 @@ int taskOne() {
 
 	minutes = advMins % 60;
 
-	if(now.hours + hours >= 24) {
+	if(now.hours + hours >= 24 && hours%24 != 0 ) {
 		if(now.amORpm == 'a') now.amORpm = 'p';
 		else now.amORpm = 'a';
 	}
 
-	now.hours = (now.hours+hours)%12;
+	if (now.hours != 12) now.hours = (now.hours+hours)%12;
 	now.minutes = minutes;
 
 	printf("Right now it is %.2i:%.2i %c", now.hours, now.minutes, now.amORpm);
