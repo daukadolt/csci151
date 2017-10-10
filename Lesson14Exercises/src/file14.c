@@ -95,26 +95,50 @@ int taskOne() {
 	time now = {.hours = 12, .minutes = 0, .amORpm = 'a'};
 
 
-	printf("Right now it is %.2i:%.2i %c\n", now.hours, now.minutes, now.amORpm);
+	while(1) {
 
-	printf("How many minutes would you want to forward the time:\n");
+		printf("Right now it is %.2i:%.2i %c\n", now.hours, now.minutes, now.amORpm);
 
-	scanf("%i", &advMins);
+		printf("How many minutes would you want to forward the time:\n");
+
+		scanf("%i", &advMins);
+
+		if (advMins < 0) break;
+
+		hours = advMins / 60;
+
+		minutes = advMins % 60;
+
+		if ((now.minutes + minutes)>=60) {
+			hours += (now.minutes + minutes)/60;
+			minutes = (now.minutes + minutes)%60;
+			now.minutes = 0;
+			now.hours = (now.hours+hours)%12;
+		}
+
+		if ((now.hours+hours)%24 != 0 && (now.hours + hours)%12 == 0) {
+			switch(now.amORpm){
+				case 'a':
+					now.amORpm = 'p';
+					break;
+				case 'p':
+					now.amORpm = 'a';
+					break;
+			}
+		};
+
+		if ((now.hours + hours) % 12 == 0) now.hours = 12;
+		else now.hours = (now.hours+hours)%12;
+		now.minutes += minutes;
+
+		printf(" RESULT: Right now it is %.2i:%.2i %c\n", now.hours, now.minutes, now.amORpm);
+
+		now.hours = 12;
+		now.minutes = 0;
+		now.amORpm = 'a';
 
 
-	hours = advMins / 60;
-
-	minutes = advMins % 60;
-
-	if(now.hours + hours >= 24 && hours%24 != 0 ) {
-		if(now.amORpm == 'a') now.amORpm = 'p';
-		else now.amORpm = 'a';
-	}
-
-	if (now.hours != 12) now.hours = (now.hours+hours)%12;
-	now.minutes = minutes;
-
-	printf("Right now it is %.2i:%.2i %c", now.hours, now.minutes, now.amORpm);
+	};
 
 	return 0;
 }
