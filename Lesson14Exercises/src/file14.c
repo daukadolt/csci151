@@ -116,7 +116,12 @@ int taskOne() {
 			now.hours = (now.hours+hours)%12;
 		}
 
-		if ((now.hours+hours)%24 != 0 && (now.hours + hours)%12 == 0) {
+
+//		printf("HOURS %i\n", hours);
+//		printf("HOURS %i\n", (hours/12)%2);
+		if ((hours/12) % 2 != 0) {
+
+			printf("CASE!\n");
 			switch(now.amORpm){
 				case 'a':
 					now.amORpm = 'p';
@@ -125,7 +130,7 @@ int taskOne() {
 					now.amORpm = 'a';
 					break;
 			}
-		};
+		}
 
 		if ((now.hours + hours) % 12 == 0) now.hours = 12;
 		else now.hours = (now.hours+hours)%12;
