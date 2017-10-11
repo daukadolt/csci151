@@ -19,9 +19,9 @@ int main() {
 
 //	videoExercise();
 
-//	taskOne();
+	taskOne();
 
-	taskTwo();
+//	taskTwo();
 
 	return 0;
 }
@@ -92,10 +92,14 @@ int taskOne() {
 		char amORpm;
 	} time;
 
-	time now = {.hours = 12, .minutes = 0, .amORpm = 'a'};
+	time now = {.hours = 3, .minutes = 0, .amORpm = 'a'};
 
 
 	while(1) {
+
+		now.hours = 3;
+		now.minutes = 0;
+		now.amORpm = 'a';
 
 		printf("Right now it is %.2i:%.2i %c\n", now.hours, now.minutes, now.amORpm);
 
@@ -111,15 +115,17 @@ int taskOne() {
 
 		if ((now.minutes + minutes)>=60) {
 			hours += (now.minutes + minutes)/60;
-			minutes = (now.minutes + minutes)%60;
+			now.minutes = (now.minutes + minutes)%60;
 			now.minutes = 0;
 			now.hours = (now.hours+hours)%12;
 		}
 
 
+//		printf("KEKUS %i %i\n", now.hours, now.hours%12);
+
 //		printf("HOURS %i\n", hours);
 //		printf("HOURS %i\n", (hours/12)%2);
-		if ((hours/12) % 2 != 0) {
+		if (( ((now.hours%12) + hours)/12) % 2 != 0) {
 
 			printf("CASE!\n");
 			switch(now.amORpm){
@@ -138,9 +144,7 @@ int taskOne() {
 
 		printf(" RESULT: Right now it is %.2i:%.2i %c\n", now.hours, now.minutes, now.amORpm);
 
-		now.hours = 12;
-		now.minutes = 0;
-		now.amORpm = 'a';
+
 
 
 	};
