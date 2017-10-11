@@ -19,9 +19,9 @@ int main() {
 
 //	videoExercise();
 
-	taskOne();
+//	taskOne();
 
-//	taskTwo();
+	taskTwo();
 
 	return 0;
 }
@@ -182,7 +182,7 @@ int taskTwo() {
 
 	nuStudent.finalGrade = nuStudent.labGrades*0.2 + nuStudent.qGrades*0.5 + nuStudent.fexamGrade*0.3;
 
-	printf("Student %i, your final grade is %lf", nuStudent.ID, nuStudent.finalGrade);
+	printf("Student %i, your final grade is %.2lf", nuStudent.ID, nuStudent.finalGrade);
 
 	return 0;
 }
