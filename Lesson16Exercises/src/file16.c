@@ -7,13 +7,17 @@ int nFactorial(int);
 
 double sinApprox(double, int);
 
+void clockOutput();
+
 int main() {
 
-//	expApprox();
+	setvbuf(stdout, NULL, _IONBF, 0);
 
 	printf("%lf\n", expApprox(1,30));
 
-	printf("%lf\n", sinApprox(1.6,6));
+	printf("%lf\n", sinApprox(0.523,3));
+
+	clockOutput();
 
 	return 0;
 
@@ -52,6 +56,26 @@ double sinApprox(double x, int n) {
 	return sum;
 }
 
+
+void clockOutput() {
+	int hours, mins, secs;
+	printf("Now is 12:00:00 AM\n. How many seconds would you love to forward the time?\n");
+	scanf("%i", &secs);
+
+	mins = secs/60;
+
+	secs = secs%60;
+
+	hours = (mins/60)%24;
+
+	mins %= 60;
+
+//	if (hours != 0) mins -= hours*60;
+//	else mins %= 60;
+
+	printf("%.2i:%.2i:%.2i\n",hours, mins, secs);
+
+}
 
 int nFactorial(int n) {
 
