@@ -1,11 +1,19 @@
 #include <stdio.h>
 #include <math.h>
 
+#include <string.h>
+
 double expApprox(double, int);
 
 int nFactorial(int);
 
 double sinApprox(double, int);
+
+_Bool isPrime(int);
+
+int sumOfDigits(int);
+
+_Bool isIdeal(int);
 
 int main() {
 
@@ -15,7 +23,9 @@ int main() {
 
 	printf("%lf\n", sinApprox(0.523,3));
 
-	clockOutput();
+	printf("%i\n", isPrime(6));
+
+	printf("%i\n", sumOfDigits(1000));
 
 	return 0;
 
@@ -54,6 +64,25 @@ double sinApprox(double x, int n) {
 	return sum;
 }
 
+
+_Bool isPrime(int n) {
+	if (n<=1) return 0;
+	return (n%2==0);
+}
+
+int sumOfDigits(int n) {
+	int sum = 0;
+
+	return sum;
+}
+
+_Bool isIdeal(int n) {
+
+	int sum = 0, divisors[100];
+
+	return 1;
+
+}
 
 int nFactorial(int n) {
 
