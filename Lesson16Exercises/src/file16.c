@@ -19,13 +19,15 @@ int main() {
 
 	setvbuf(stdout, NULL, _IONBF, 0);
 
-	printf("%lf\n", expApprox(1,30));
+	printf("Exponent number approx: %lf\n", expApprox(1,30));
+//
+	printf("Sin value at %.3lf rad approx: %lf\n", 0.523, sinApprox(0.523,3));
+//
+	printf("Is %i a prime number: %i\n", 6, isPrime(6));
+//
+	printf("Sum of digits of an integer %i = %i\n", 12345, sumOfDigits(12345));
 
-	printf("%lf\n", sinApprox(0.523,3));
-
-	printf("%i\n", isPrime(6));
-
-	printf("%i\n", sumOfDigits(1000));
+	printf("Is %i an ideal number: %i\n", 28, isIdeal(28));
 
 	return 0;
 
@@ -72,15 +74,29 @@ _Bool isPrime(int n) {
 
 int sumOfDigits(int n) {
 	int sum = 0;
+	int rem;
+	while(1) {
+		if(n == 0) break;
+		rem = (n%10);
+		n = n/10;
+		sum = sum + rem;
+	};
 
 	return sum;
 }
 
 _Bool isIdeal(int n) {
 
-	int sum = 0, divisors[100];
+	int sum = 0, i = 1;
 
-	return 1;
+	for (; i<=(n/2); i++) {
+		if(n%i==0){
+			sum+=i;
+		}
+	};
+	if(sum == n) return 1;
+
+	return 0;
 
 }
 
