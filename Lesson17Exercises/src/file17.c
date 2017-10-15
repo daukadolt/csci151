@@ -33,13 +33,33 @@ int main() {
 
 	printf("Index of smallest value: %i\n", smallestDouble(5,test1));
 
+	printf("\n\n\n");
+
 	printf("Max val: %.3lf\n", maxVal(5, test2));
 
+	printf("\n\n\n");
+
 	printContents(5, test1);
+
+	printf("\n");
 
 	reverseArray(5, test1);
 
 	printContents(5, test1);
+
+	printf("\n\n\n");
+
+	double arr1[3][2], arr2[2][3];
+
+	populateArray(3, 2, arr1);
+
+	printArrContents(3, 2, arr1);
+
+	printf("\n\n\n");
+
+	transpose(3, 2, arr1, arr2);
+
+	printArrContents(2, 3, arr2);
 
 	return 0;
 }
@@ -129,12 +149,24 @@ void populateArray(int row, int col, double arr[][col]) {
 
 void printArrContents(int row, int col, double arr[][col]) {
 
+	for (int j = 0; j<row; j++) {
+		for (int i = 0; i<col; i++) {
+			printf("%.2lf\t", arr[j][i]);
+		}
+		printf("\n");
+	}
+
 }
 
 
 void transpose(int row, int col, double orig[][col], double result[][row]){
 
 
+	for (int i = 0; i<col; i++) {
+		for (int j = 0; j< row; j++) {
+			result[i][j] = orig[j][i];
+		}
+	}
 
 }
 
