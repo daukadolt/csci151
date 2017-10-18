@@ -26,7 +26,7 @@ int main() {
 //
 	printf("Is %i a prime number: %i\n", 31, isPrime(31));
 //
-	printf("Sum of digits of an integer %i = %i\n", 12345, sumOfDigits(12345));
+	printf("Sum of digits of an integer %i = %i\n", 1010101, sumOfDigits(1010101));
 
 	printf("Is %i an ideal number: %i\n", 28, isIdeal(28));
 
@@ -133,9 +133,11 @@ int nFactorial(int n) {
 
 	if (n == 1 || n == 0) return 1;
 
-	for (int i = n-1; i>0; i--) {
-		n *= i;
-	}
+//	for (int i = n-1; i>0; i--) {
+//		n *= i;
+//	}
+
+	n *= nFactorial(n-1);
 
 	return n;
 }
