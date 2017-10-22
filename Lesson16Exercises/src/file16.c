@@ -133,11 +133,11 @@ int nFactorial(int n) {
 
 	if (n == 1 || n == 0) return 1;
 
-//	for (int i = n-1; i>0; i--) {
-//		n *= i;
-//	}
+	for (int i = n-1; i>0; i--) {
+		n *= i;
+	}
 
-	n *= nFactorial(n-1);
+//	n *= nFactorial(n-1);
 
 	return n;
 }

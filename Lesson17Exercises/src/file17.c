@@ -55,7 +55,7 @@ int main() {
 
 	printArrContents(3, 2, arr1);
 
-	printf("\n\n\n");
+	printf("Transpose \n\n\n");
 
 	transpose(3, 2, arr1, arr2);
 
