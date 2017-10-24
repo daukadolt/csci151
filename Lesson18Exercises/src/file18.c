@@ -27,7 +27,7 @@ int main() {
 
 	printf("%lf\n", power_eff(5, 10));
 
-	int x[] = {1,2,3,4};
+	int x[] = {1,2,3,4,5 };
 
 	printf("%i\n", addSubarray(x, 0, 3));
 
@@ -35,7 +35,7 @@ int main() {
 
 	printf("%lf\n", minValue(test, 0, 4));
 
-	printBinary(9);
+	printBinary(8);
 
 //	printf("\n%lf\n", choose(52,5));
 
@@ -134,16 +134,18 @@ double minValue(double arr[], int from, int to) {
 
 void printBinary(int n) {
 	if(n==0) return;
-
+	printBinary(n/2);
 	printf("%i", n%2);
 
-	printBinary(n/2);
+
 
 }
 
 
 long choose(int n, int k) {
+
 	if(k==0) return 1;
 //	printf("k: %i\n", k);
 	return ((n-k+1)/(k))*choose(n, k-1);
+
 }

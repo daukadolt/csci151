@@ -22,7 +22,7 @@ int main() {
 
 	printf("Exponent number approx: %lf\n", expApprox(1,30));
 //
-	printf("Sin value at %.3lf rad approx: %lf\n", 0.523, sinApprox(0.523,3));
+	printf("Sin value at %.3lf rad approx: %lf\n", 0.523, sinApprox(0.523,15));
 //
 	printf("Is %i a prime number: %i\n", 31, isPrime(31));
 //
@@ -79,7 +79,7 @@ double sinApprox(double x, int n) {
 
 //	x *= 180/M_PI;
 
-	for (int i = 1; i<=n; i+=2, j++) {
+	for (int i = 1; j<n; i+=2, j++) {
 		if(j%2 == 0){
 //			printf("+");
 			sum += (pow(x,i)/nFactorial(i));
