@@ -5,3 +5,6 @@
 2. Now you'll have to create a file _.gdbinit_ in your project's directory with the following inside:
 
 ` set startup-with-shell off `
+
+
+3. You are good to go! Now you can run the debugging mode
