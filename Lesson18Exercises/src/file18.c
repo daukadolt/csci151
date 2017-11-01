@@ -23,13 +23,13 @@ long choose(int, int);
 
 int main() {
 
-	testfunc(5, 10);
+	testfunc(5, 2);
 
-	printf("%lf\n", power_eff(5, 10));
+	printf("%lf\n", power_eff(5, 2));
 
 	int x[] = {1,2,3,4,5 };
 
-	printf("%i\n", addSubarray(x, 0, 3));
+	printf("%i\n", addSubarray(x, 0, 1));
 
 	double test[] = {1,2,0.5,4,5};
 
@@ -111,8 +111,8 @@ void testfunc(double x, int n) {
 }
 
 int addSubarray(int x[], int from, int to) {
-	if(from==to) return x[to];
-	return x[from] + addSubarray(x, from+1, to);
+	if(from==to) return x[from];
+	return x[to] + addSubarray(x, from, to-1);
 
 }
 
