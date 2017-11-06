@@ -58,10 +58,12 @@ double strToDouble(const char str[]) {
 			degree++;
 		}
 
-		while(degree>j) {
+		while(degree>=j) {
 			deciResult /= 10;
 			degree--;
 		}
+
+
 
 		degree = 0;
 
@@ -75,7 +77,7 @@ double strToDouble(const char str[]) {
 				sum = sum*10 + asd;
 			}
 
-//			printf("POWER IS:%i\n", sum);
+			printf("POWER IS:%i\n", sum);
 
 			multiple = pow(10, sum);
 		}
@@ -87,7 +89,7 @@ double strToDouble(const char str[]) {
 	if(isNegative) result *= -1;
 	return result;
 
-	return (double) atof(str);
+//	return (double) atof(str);
 
 }
 
@@ -102,6 +104,8 @@ int main() {
 	printf("%lf\n", strToDouble("123.456e13"));
 
 	printf("%lf\n", strToDouble("123.456e-13"));
+
+	printf("%.10lf\n", strToDouble("0.1e-6"));
 
 	printf("%lf\n", strToDouble("test"));
 
